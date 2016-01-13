@@ -3,7 +3,7 @@
 This is a simple class used to query the parsec isochrones that are stored
 within wsdb, and cache them so they can be used quickly.
 
-## wsdb Credentials
+## Database Credentials
 
 This package gets it's data from [wsdb](https://www.ast.cam.ac.uk/ioa/wikis/WSDB)
 and as such it will need your database credentials. It will look for them in
@@ -22,7 +22,16 @@ password: {your password}
 
 Once you've created it don't forget to set it's permissions to 600!
 
-## TODO
+## Usage
 
- * Impliment a way of grabbing them from the web so that this can be used
-   outside of the IoA.
+Once installed grabbing you can get the isochrone which is closest to a given metallicity and  age  by doing
+
+```
+import parsec_wsdb
+
+isodb = parsec_wsdb.ParsecIsochrones()
+
+isochrone = isodb.get_isochrone(feh = -1.5, logage =  9.0)
+```
+
+this will return an `astropy` table with the requested data.
