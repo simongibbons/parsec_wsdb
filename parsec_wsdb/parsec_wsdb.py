@@ -37,7 +37,7 @@ class IsochroneIndex(object):
 class ParsecIsochrones(object):
     def __init__(self):
         global _iso_index
-        if _iso_index == None or type(_iso_index) != IsochroneIndex:
+        if _iso_index is None or npt isinstance(_iso_index, IsochroneIndex):
             _iso_index = IsochroneIndex()
         self.index = _iso_index
         self.cache = {}
